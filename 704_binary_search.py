@@ -18,5 +18,3 @@ class Solution(object):
                 return midIndex
         return -1
     
-test = Solution()
-test.search([-1,2,3,5,9,12], 2)
