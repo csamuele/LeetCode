@@ -35,9 +35,11 @@ def findFinalValues(coins):
                 heappush(uniqueHeap, currDenom * 2)
             coinHash[currDenom * 2].appendleft(convertedCoinIndex)
             finalLength -= 1
-    res = [0] * finalLength
+    res = []
     for key in coinHash:
         for index in coinHash[key]:
-            res[index] = key
-    return res
+            if index >= len(res):
+                res.append(key)
+            res.insert(index, key)
+    return res.ins
 findFinalValues([1, 3, 1])
