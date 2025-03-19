@@ -9,15 +9,11 @@ class ListNode:
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        if not(head.next):
-            return False
-        if not(head.next.next):
-            return False
         slowPointer = head
-        fastPointer = head.next.next
-        while fastPointer != slowPointer:
+        fastPointer = head
+        while fastPointer and fastPointer.next:
             slowPointer = slowPointer.next
             fastPointer = fastPointer.next.next
-            if fastPointer == None:
-                return False
-        return True
+            if slowPointer == fastPointer:
+                return True
+        return False
